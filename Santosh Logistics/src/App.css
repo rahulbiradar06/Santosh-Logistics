@@ -1,0 +1,12 @@
+/* Minimal helpers for layout; main styling via Tailwind in index.css */
+#root {
+  min-height: 100vh;
+}
+
+.container-xl {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
