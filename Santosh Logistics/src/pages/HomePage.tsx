@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import heroImg from '../assets/transport/5.jpg'
 
 export default function HomePage() {
   return (
@@ -10,7 +11,7 @@ export default function HomePage() {
         {/* Background image */}
         <div className="absolute inset-0 -z-20">
           <img 
-            src="/src/assets/transport/5.jpg" 
+            src={heroImg} 
             alt="Transport fleet" 
             className="w-full h-full object-cover"
           />
