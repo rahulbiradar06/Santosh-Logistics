@@ -18,29 +18,53 @@ export default function HomePage() {
         </div>
         
         {/* Content */}
-        <div className="container-xl pt-20">
+        <div className="container-xl pt-24">
           <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6">
-              Speed • Secure • Supply
+            {/* Badge row */}
+            <div className="flex items-center gap-2 mb-4">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm text-white/90 backdrop-blur">
+                <span className="h-2 w-2 rounded-full bg-[--accent]"></span>
+                Since 1990
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm text-white/90 backdrop-blur">
+                <span className="h-2 w-2 rounded-full bg-[--secondary]"></span>
+                Trusted by leading manufacturers
+              </span>
+            </div>
+
+            {/* Headline */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-4 leading-[1.05]">
+              Speed • Secure •
+              <span className="relative inline-block">
+                <span className="px-2 md:px-3">Supply</span>
+                <span className="pointer-events-none absolute inset-x-0 bottom-1 h-2 bg-[--accent]/60 blur-[2px]"></span>
+              </span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 font-medium mb-8">
-              Serving the Transport Industry Since 1990
+
+            {/* Subtext */}
+            <p className="text-lg md:text-xl text-white/85 max-w-2xl">
+              Reliable, on-time logistics across Maharashtra with GPS-enabled fleet, modern warehousing, and responsive support.
             </p>
-            <p className="text-lg text-white/80 mb-8">
-              Trusted logistics partner for Bajaj Auto, Varroc, Minda & more.
-            </p>
-            <div className="flex flex-wrap gap-4">
+
+           
+
+            {/* CTA */}
+            <div className="mt-8 flex flex-wrap gap-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center rounded-md bg-[--primary] px-6 py-3 text-lg font-medium text-[--primary-foreground] shadow-sm hover:opacity-90"
+                className="group inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-base md:text-lg font-semibold text-[--primary] shadow-sm hover:shadow-md hover:bg-white/95 transition-all"
               >
-                Get a Quote
+                Contact Us
+                <svg className="h-5 w-5 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14"/>
+                  <path d="M12 5l7 7-7 7"/>
+                </svg>
               </Link>
               <Link
-                to="/track"
-                className="inline-flex items-center rounded-md bg-white/20 backdrop-blur px-6 py-3 text-lg font-medium text-white hover:bg-white/30"
+                to="/services"
+                className="inline-flex items-center gap-2 rounded-lg bg-white/15 px-6 py-3 text-base md:text-lg font-semibold text-white ring-1 ring-white/25 hover:bg-white/20 transition-colors"
               >
-                Track Shipment
+                Our Services
               </Link>
             </div>
           </div>

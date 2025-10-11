@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import logoImg from '../assets/Logo/logo.png'
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -20,10 +21,18 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       <header className={`fixed top-0 w-full z-50 transition-colors duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur shadow-sm' : 'bg-transparent'}`}>
         <nav className="container-xl flex items-center justify-between py-4" aria-label="Primary">
           {/* Left: Logo */}
-          <Link to="/" className="flex items-center gap-2 font-semibold tracking-wide text-foreground">
-            <span className="inline-block h-3 w-3 rounded-sm bg-[--primary]"></span>
+          <Link to="/" className="flex items-center gap-3 font-semibold tracking-wide text-foreground">
+            <img
+              src={logoImg}
+              alt="Santosh Logistics Logo"
+              className={`h-18 md:h-18 w-auto object-contain p-0.5 rounded ${
+                !isScrolled && location.pathname === '/'
+                  ? ' drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]'
+                  : 'bg-transparent'
+              }`}
+            />
             <span className={`text-lg ${!isScrolled && location.pathname === '/' ? 'text-white' : 'text-foreground'}`}>
-              SANTOSH LOGISTICS PVT. LTD.
+              SANTOSH LOGISTICS
             </span>
           </Link>
 
