@@ -1,4 +1,13 @@
 import { Link } from 'react-router-dom'
+import bajajauto from '../assets/clients/bajajauto.png'
+import maskpolymers from '../assets/clients/maskpolymers.jpeg'
+import rooppolymers from '../assets/clients/rooppolymers.jpeg'
+import minda from '../assets/clients/minda.png'
+import kumar from '../assets/clients/kumar.jpeg'
+import thackerbrothers from '../assets/clients/thackerbrothers.jpeg'
+import varroc from '../assets/clients/varroc.png'
+import endurance from '../assets/clients/endurance.jpeg'
+import badve from '../assets/clients/bavde.jpeg'
 
 export default function ClientsPage() {
   return (
@@ -18,24 +27,33 @@ export default function ClientsPage() {
         <div className="container-xl">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {[
-              'Bajaj Auto Ltd.',
-              'Mask Polymers Pvt. Ltd.',
-              'Roop Polymers Ltd.',
-              'Minda Sai Ltd.',
-              'Kumar Elastomec Pvt. Ltd.',
-              'Thacker Brothers',
-              'Vidicast Engineering Pvt. Ltd.',
-              'Varroc Engineering',
-              'Badve Engineering',
-              'Endurance Technologies Pvt. Ltd.'
+              { name: 'Bajaj Auto Ltd.', logo: bajajauto },
+              { name: 'Mask Polymers Pvt. Ltd.', logo: maskpolymers },
+              { name: 'Roop Polymers Ltd.', logo: rooppolymers },
+              { name: 'Minda Sai Ltd.', logo: minda },
+              { name: 'Kumar Elastomec Pvt. Ltd.', logo: kumar },
+              { name: 'Thacker Brothers', logo: thackerbrothers },
+              { name: 'Vidicast Engineering Pvt. Ltd.', logo: undefined },
+              { name: 'Varroc Engineering', logo: varroc },
+              { name: 'Badve Engineering', logo: badve },
+              { name: 'Endurance Technologies Pvt. Ltd.', logo: endurance }
             ].map((client) => (
               <div
-                key={client}
+                key={client.name}
                 className="aspect-square rounded-lg border border-border bg-white p-6 flex items-center justify-center hover:border-[--primary] transition-colors"
               >
-                <div className="text-center">
-                  <div className="text-4xl mb-4">🏢</div>
-                  <p className="font-medium text-foreground/80">{client}</p>
+                <div className="text-center w-full">
+                  {client.logo ? (
+                    <img
+                      src={client.logo}
+                      alt={`${client.name} logo`}
+                      className="mx-auto mb-4 max-h-16 md:max-h-20 object-contain"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="text-4xl mb-4">🏢</div>
+                  )}
+                  <p className="font-medium text-foreground/80">{client.name}</p>
                 </div>
               </div>
             ))}
