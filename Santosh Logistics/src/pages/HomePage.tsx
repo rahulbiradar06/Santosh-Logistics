@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom'
 import heroImg from '../assets/transport/5.jpg'
+import iconOnTime from '@/assets/transport/5.jpg'
+import iconSafe from '@/assets/about/office3.jpeg'
+import iconSupport from '@/assets/clients/team2.png'
+import iconExperience from '@/assets/services/office.png'
 
 export default function HomePage() {
   return (
@@ -140,27 +144,69 @@ export default function HomePage() {
         </div>
       </section> */}
 
-      {/* Quality Policy */}
+      {/* Why Choose Us (Redesigned) */}
       <section className="py-20 bg-white">
         <div className="container-xl">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Us</h2>
-            <p className="text-xl text-foreground/70 mb-12">
-              Your goods, delivered safely — every time.
-            </p>
+          {/* Header row with CTA */}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-3">Why Choose Us</h2>
+              <p className="text-foreground/70 max-w-3xl">Your goods, delivered safely — every time.</p>
+            </div>
+            <Link
+              to="/services"
+              className="self-start inline-flex items-center gap-2 rounded-full bg-[--primary] px-5 py-2 text-white hover:opacity-90 transition"
+            >
+              Explore Services
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+            </Link>
+          </div>
 
-            <div className="grid sm:grid-cols-2 gap-6">
-              {[
-                { icon: '✅', text: 'On-time Delivery' },
-                { icon: '🛡️', text: 'Safe & Dependable Transport' },
-                { icon: '📞', text: 'Prompt & Positive Response' },
-                { icon: '🏆', text: '25+ Years Experience' }
-              ].map((item) => (
-                <div key={item.text} className="flex items-center gap-4 p-4 rounded-lg border border-border">
-                  <span className="text-2xl">{item.icon}</span>
-                  <span className="font-medium">{item.text}</span>
-                </div>
-              ))}
+          {/* Feature cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Highlighted card */}
+            <div className="rounded-2xl p-6 md:p-7 bg-[--primary] text-[--primary-foreground] shadow-sm">
+              <div className="flex items-center gap-3 mb-4">
+                <img src={iconOnTime} alt="On-time Delivery" className="h-8 w-8 rounded-md object-cover ring-1 ring-white/20" />
+                <span className="text-sm/none bg-white/15 px-2 py-1 rounded-md">Reliability</span>
+              </div>
+              <h3 className="text-xl md:text-2xl font-semibold mb-2">On-time Delivery</h3>
+              <p className="text-[--primary-foreground]/90 mb-5">Efficient route planning and proactive tracking to meet your deadlines.</p>
+              <Link to="/services" className="inline-flex items-center gap-2 rounded-full bg-white/90 text-[--primary] px-4 py-2 font-medium hover:bg-white">
+                Learn More
+                <span aria-hidden>↗</span>
+              </Link>
+            </div>
+
+            {/* Secondary cards */}
+            <div className="rounded-2xl p-6 md:p-7 bg-accent/20 border border-border">
+              <div className="flex items-center gap-3 mb-4">
+                <img src={iconSafe} alt="Safe Transport" className="h-8 w-8 rounded-md object-cover ring-1 ring-border" />
+                <span className="text-sm text-foreground/70">Safety</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Safe & Dependable Transport</h3>
+              <p className="text-foreground/70 mb-5">Maintained fleet and trained drivers to safeguard your goods.</p>
+              <Link to="/services" className="inline-flex items-center gap-2 rounded-full bg-[--primary] text-white px-4 py-2 font-medium hover:opacity-90">Learn More</Link>
+            </div>
+
+            <div className="rounded-2xl p-6 md:p-7 bg-accent/20 border border-border">
+              <div className="flex items-center gap-3 mb-4">
+                <img src={iconSupport} alt="Prompt Response" className="h-8 w-8 rounded-md object-cover ring-1 ring-border" />
+                <span className="text-sm text-foreground/70">Support</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Prompt & Positive Response</h3>
+              <p className="text-foreground/70 mb-5">Responsive coordination and updates throughout the delivery cycle.</p>
+              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-[--primary] text-white px-4 py-2 font-medium hover:opacity-90">Learn More</Link>
+            </div>
+
+            <div className="rounded-2xl p-6 md:p-7 bg-accent/20 border border-border">
+              <div className="flex items-center gap-3 mb-4">
+                <img src={iconExperience} alt="Years Experience" className="h-8 w-8 rounded-md object-cover ring-1 ring-border" />
+                <span className="text-sm text-foreground/70">Experience</span>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">25+ Years Experience</h3>
+              <p className="text-foreground/70 mb-5">A proven track record with leading manufacturers across Maharashtra.</p>
+              <Link to="/about" className="inline-flex items-center gap-2 rounded-full bg-[--primary] text-white px-4 py-2 font-medium hover:opacity-90">Learn More</Link>
             </div>
           </div>
         </div>
