@@ -1,54 +1,47 @@
 import { useEffect, useRef } from 'react'
+import TeamImg from '@/assets/about/team.png'
+import OfficeImg from '@/assets/about/office3.jpeg'
+import KrishnaImg from '@/assets/about/krishna.png'
+import SantoshImg from '@/assets/about/santosh.png'
+import AvantiImg from '@/assets/about/avanti.png'
+import Team3Img from '@/assets/about/team3.png'
 export default function AboutPage() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 -z-10 bg-[--primary]">
-          <div className="absolute inset-0 bg-[linear-gradient(30deg,var(--primary)_50%,var(--accent)_100%)] opacity-90"></div>
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.12) 1px, transparent 0)',
-              backgroundSize: '28px 28px',
-            }}
-          ></div>
-        </div>
+      <section className="relative pt-28 pb-20 md:pt-36 min-h-[520px] md:min-h-[620px] overflow-hidden">
+        <div
+          className="absolute inset-0 -z-10 bg-[position:50%_12%] bg-cover"
+          style={{ backgroundImage: `url(${TeamImg})` }}
+        />
+        <div className="absolute inset-0 -z-0 bg-black/20" />
         <div className="container-xl text-white">
-          <div className="max-w-4xl">
-            <div className="flex flex-wrap items-center gap-2 mb-4">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm backdrop-blur">
-                <span className="h-2 w-2 rounded-full bg-[--secondary]"></span>
-                Since 1990
-              </span>
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm backdrop-blur">
-                <span className="h-2 w-2 rounded-full bg-[--accent]"></span>
-                Family-owned • Customer-first
-              </span>
-            </div>
+          <div className="max-w-4xl -translate-y-2 -translate-x-2 md:-translate-y-4 md:-translate-x-4 transition-transform">
+            
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">About Santosh Logistics</h1>
-            <p className="text-lg md:text-xl text-white/90 max-w-2xl">
+            {/* <p className="text-lg md:text-xl text-white/90 max-w-2xl">
               Maharashtra’s trusted logistics partner delivering reliability, safety, and service excellence
               across industrial hubs for over three decades.
-            </p>
+            </p> */}
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+            {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
               {[
                 { label: 'Years', value: '25+' },
                 { label: 'Deliveries/mo', value: '1000+' },
                 { label: 'Fleet Size', value: '50+' },
                 { label: 'On-time', value: '99%' },
               ].map((s) => (
-                <div key={s.label} className="rounded-lg bg-white/10 backdrop-blur p-4 text-center border border-white/10">
+                <div key={s.label} className="rounded-lg bg-white/10  p-4 text-center border border-white/10">
                   <div className="text-2xl font-bold">{s.value}</div>
                   <div className="text-white/80 text-sm">{s.label}</div>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
+
+     
 
       {/* Company Overview */}
       <section className="py-20 bg-white">
@@ -84,9 +77,14 @@ export default function AboutPage() {
       </section>
 
       {/* Quality Policy */}
-      <section className="py-20 bg-accent/40">
-        <div className="container-xl">
-          <h2 className="text-3xl font-bold mb-12 text-center">Our Quality Policy</h2>
+      <section className="py-20 relative overflow-hidden">
+        <div
+          className="absolute inset-0 -z-10 bg-center bg-cover"
+          style={{ backgroundImage: `url(${OfficeImg})` }}
+        />
+        <div className="absolute inset-0 -z-0 bg-black/30" />
+        <div className="container-xl relative">
+          <h2 className="text-3xl font-bold mb-12 text-center text-white">Our Quality Policy</h2>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
@@ -117,7 +115,7 @@ export default function AboutPage() {
             ].map((policy) => (
               <div
                 key={policy.title}
-                className="bg-white rounded-lg p-6 border border-border hover:shadow-sm transition-shadow"
+                className="bg-white/30 backdrop-blur-md rounded-lg p-6 border border-border hover:shadow-sm transition-shadow"
               >
                 <h3 className="text-xl font-semibold mb-3">{policy.title}</h3>
                 <p className="text-foreground/70">{policy.description}</p>
@@ -128,7 +126,7 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="container-xl">
           <h2 className="text-3xl font-bold mb-10 text-center">Our Core Values</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -146,31 +144,73 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Leadership */}
       <section className="py-20 bg-white">
         <div className="container-xl">
           <h2 className="text-3xl font-bold mb-12 text-center">Our Leadership</h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { name: 'Late Mr. Krishna B. Parab', role: 'Founder' },
-              { name: 'Mr. Santosh Krishna Parab', role: 'Director' },
+              { name: 'Late Mr. Krishna B. Parab', role: 'Founder', img: KrishnaImg },
+              { name: 'Mr. Santosh Krishna Parab', role: 'Director', img: SantoshImg },
+              { name: 'Mrs. Avanti Parab', role: 'Director', img: AvantiImg },
             ].map((p) => (
-              <div key={p.name} className="text-center p-6 rounded-lg border border-border">
-                <div className="w-28 h-28 mx-auto mb-5 rounded-full bg-accent/40 flex items-center justify-center ring-1 ring-border">
-                  <span className="text-3xl">👤</span>
+              <div
+                key={p.name}
+                className="group overflow-hidden rounded-xl border border-border bg-white shadow-sm transition hover:shadow-md"
+              >
+                <div className="relative bg-[#f5f5f5]">
+                  <div
+                    className="pointer-events-none absolute inset-0 opacity-60"
+                    style={{
+                      backgroundImage:
+                        'radial-gradient(circle at 50% 30%, rgba(0,0,0,0.08) 1px, transparent 1px), radial-gradient(circle at 70% 60%, rgba(0,0,0,0.06) 1px, transparent 1px)',
+                      backgroundSize: '22px 22px, 28px 28px',
+                    }}
+                  />
+                  <img
+                    src={p.img}
+                    alt={p.name}
+                    className="relative z-10 block h-72 md:h-80 w-full object-cover object-top rounded-t-xl"
+                  />
                 </div>
-                <h3 className="text-lg font-semibold mb-1">{p.name}</h3>
-                <p className="text-foreground/70 text-sm">{p.role}</p>
+                <div className="p-5">
+                  <h3 className="text-lg md:text-xl font-extrabold text-foreground">{p.name}</h3>
+                  <p className="mt-1 text-sm md:text-base text-foreground/70 italic font-serif">{p.role}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+
+       {/* Our Team */}
+       <section className="py-20 bg-white">
+        <div className="container-xl">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Team</h2>
+              <p className="text-foreground/70 md:text-lg">
+                A committed group of professionals powering reliable logistics operations across Maharashtra. We
+                take pride in teamwork, safety, and customer-first service.
+              </p>
+            </div>
+            <div className="relative overflow-hidden rounded-xl border border-border bg-white flex items-center justify-center">
+              <img
+                src={Team3Img}
+                alt="Santosh Logistics Team"
+                className="block w-full h-[320px] md:h-[460px] object-contain object-center bg-white"
+              />
+              {/* <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-transparent via-white/70 to-white" /> */}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="py-20 relative overflow-hidden">
+      {/* <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[--primary]">
           <div className="absolute inset-0 bg-[linear-gradient(30deg,var(--primary)_50%,var(--secondary)_100%)] opacity-90"></div>
           <div
@@ -194,7 +234,7 @@ export default function AboutPage() {
             Contact Us
           </a>
         </div>
-      </section>
+      </section> */}
     </div>
   )
 }

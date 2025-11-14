@@ -1,11 +1,17 @@
+import OfficeBg from '@/assets/services/office.png'
 export default function ServicesPage() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="bg-accent/40 py-20">
-        <div className="container-xl">
+      <section className="relative py-20 overflow-hidden">
+        <div
+          className="absolute inset-0 -z-10 bg-cover bg-[position:50%_15%] md:bg-[position:50%_20%]"
+          style={{ backgroundImage: `url(${OfficeBg})` }}
+        />
+        <div className="absolute inset-0 -z-0 bg-black/30" />
+        <div className="container-xl relative text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
-          <p className="text-xl text-foreground/70 max-w-3xl">
+          <p className="text-xl text-white/90 max-w-3xl">
             Comprehensive logistics solutions designed to meet your business needs with efficiency and reliability.
           </p>
         </div>

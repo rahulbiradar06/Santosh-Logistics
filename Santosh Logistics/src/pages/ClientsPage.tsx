@@ -8,15 +8,21 @@ import thackerbrothers from '../assets/clients/thackerbrothers.jpeg'
 import varroc from '../assets/clients/varroc.png'
 import endurance from '../assets/clients/endurance.jpeg'
 import badve from '../assets/clients/bavde.jpeg'
+import ClientsHero from '@/assets/clients/team2.png'
 
 export default function ClientsPage() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="bg-accent/40 py-20">
-        <div className="container-xl">
+      <section className="relative py-20 overflow-hidden">
+        <div
+          className="absolute inset-0 -z-10 bg-center bg-cover"
+          style={{ backgroundImage: `url(${ClientsHero})` }}
+        />
+        <div className="absolute inset-0 -z-0 bg-black/30" />
+        <div className="container-xl relative text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Clients</h1>
-          <p className="text-xl text-foreground/70 max-w-3xl">
+          <p className="text-xl text-white/90 max-w-3xl">
             Proud logistics partner for leading manufacturers across Maharashtra.
           </p>
         </div>
@@ -146,7 +152,7 @@ export default function ClientsPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center rounded-md bg-white px-8 py-3 text-lg font-medium text-[--primary] shadow-sm hover:bg-white/90 transition-colors"
+              className="inline-flex items-center justify-center rounded-md bg-black/30 px-8 py-3 text-lg font-medium text-[--primary] shadow-sm hover:bg-white/10 transition-colors"
             >
               Get in Touch
             </Link>
