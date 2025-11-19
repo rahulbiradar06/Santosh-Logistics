@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center">
+      <section className="relative min-h-screen flex items-center overflow-hidden rounded-b-[36px] md:rounded-b-[64px]">
         {/* Background overlay */}
         <div className="absolute inset-0 -z-10 bg-black/50"></div>
         {/* Background image */}
@@ -76,7 +76,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-white">
+      {/* <section className="py-20 bg-white">
         <div className="container-xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
@@ -92,61 +92,27 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Services Preview */}
-      {/* <section className="py-20 bg-accent/40">
-        <div className="container-xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
-            <p className="text-foreground/70 max-w-2xl mx-auto">
-              Comprehensive logistics solutions tailored to your business needs
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                icon: '🚚',
-                title: 'Fleet Management',
-                description: 'Modern fleet with GPS tracking and maintenance monitoring'
-              },
-              {
-                icon: '💻',
-                title: 'EDI Integration',
-                description: 'Seamless data exchange between branches and head office'
-              },
-              {
-                icon: '🏭',
-                title: 'Warehousing',
-                description: 'Strategic storage locations across Maharashtra'
-              }
-            ].map((service) => (
-              <div key={service.title} className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-foreground/70 mb-4">{service.description}</p>
-                <Link to="/services" className="text-[--primary] hover:underline">
-                  Learn more →
-                </Link>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link
-              to="/services"
-              className="inline-flex items-center rounded-md bg-[--primary] px-6 py-3 text-lg font-medium text-[--primary-foreground] shadow-sm hover:opacity-90"
-            >
-              View All Services
-            </Link>
-          </div>
-        </div>
       </section> */}
-
       {/* Why Choose Us (Redesigned) */}
-      <section className="py-20 bg-white">
-        <div className="container-xl">
+      <section className="relative py-20 bg-white overflow-hidden">
+        {/* Radial yellow background */}
+        {/* <div
+          className="pointer-events-none absolute inset-0 z-0"
+          style={{
+            backgroundImage:
+              'radial-gradient(500px 500px at 88% 88%, rgba(65, 211, 248, 0.28), transparent 100%),\
+              //  radial-gradient(560px 560px at 88% 12%, rgba(4, 241, 249, 0.22), transparent 100%),\
+               radial-gradient(500px 500px at 82% 82%, rgba(115, 232, 245, 0.18), transparent 100%)',
+          }}
+        /> */}
+        <div
+          className="pointer-events-none absolute inset-0 z-0 animate-pulse"
+          style={{
+            backgroundImage:
+              'radial-gradient(520px 520px at 22% 78%, rgba(250,204,21,0.15), transparent 65%)',
+          }}
+        />
+        <div className="container-xl relative z-10">
           {/* Header row with CTA */}
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
             <div>
@@ -215,9 +181,12 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="py-20 relative overflow-hidden">
         {/* Background with pattern */}
-        <div className="absolute inset-0 bg-[--primary]">
-          <div className="absolute inset-0 bg-[linear-gradient(30deg,var(--primary)_50%,var(--accent)_100%)] opacity-90"></div>
-          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
+        <div className="absolute inset-0 bg-[--primary] rounded-t-[36px] rounded-b-[36px] md:rounded-t-[64px] md:rounded-b-[64px]">
+          <div className="absolute inset-0 bg-[linear-gradient(30deg,var(--primary)_50%,var(--accent)_100%)] opacity-90 rounded-t-[36px] rounded-b-[36px] md:rounded-t-[64px] md:rounded-b-[64px]"></div>
+          <div
+            className="absolute inset-0 rounded-t-[36px] rounded-b-[36px] md:rounded-t-[64px] md:rounded-b-[64px]"
+            style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)', backgroundSize: '32px 32px' }}
+          ></div>
         </div>
         
         <div className="container-xl relative">
@@ -245,12 +214,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              {/* <Link
-                to="/contact"
-                className="inline-flex items-center justify-center rounded-md bg-white px-8 py-3 text-lg font-medium text-[--primary] shadow-sm hover:bg-white/90 transition-colors"
-              >
-                Get a Quote
-              </Link> */}
+
               <Link
                 to="/services"
                 className="inline-flex items-center justify-center rounded-md bg-white/10 backdrop-blur px-8 py-3 text-lg font-medium text-white border border-white/20 hover:bg-white/20 transition-colors"
