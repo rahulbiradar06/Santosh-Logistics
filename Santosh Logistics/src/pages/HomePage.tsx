@@ -37,7 +37,7 @@ export default function HomePage() {
             </div>
 
             {/* Headline */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-4 leading-[1.05]">
+            <h1 className="whitespace-nowrap text-[clamp(22px,7.5vw,44px)] md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 leading-[1.05]">
               Speed • Secure •
               <span className="relative inline-block">
                 <span className="px-2 md:px-3">Supply</span>
