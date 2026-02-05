@@ -162,9 +162,9 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
             <div>
               <h3 className="font-semibold mb-4">Contact</h3>
               <ul className="space-y-2 text-sm text-foreground/70">
-                <li>304/ Kaveri Co-op Hsg. Soc.</li>
-                <li>Plot No. 73, Sec 05</li>
-                <li>Sanpada, Navi Mumbai - 400705</li>
+                <li>304, Kaveri Co.op. Hsg. Soc.</li>
+                <li>Plot 73, Sector 05</li>
+                <li>Sanpada, Navi Mumbai – 400705</li>
                 <li>Maharashtra, India</li>
               </ul>
             </div>

@@ -141,14 +141,17 @@ export default function ContactPage() {
                   <span className="mt-1">📞</span>
                   <div>
                     <div className="font-semibold">Call</div>
-                    <a href="tel:+919225304131" className="text-foreground/70 hover:text-[--primary]">+91 92253 04131</a>
-                  </div>
-                </div>
-                <div className="rounded-xl border border-border p-5 bg-white flex items-start gap-3">
-                  <span className="mt-1">📍</span>
-                  <div>
-                    <div className="font-semibold">Address</div>
-                    <p className="text-foreground/70">304/ Kaveri Co-op Hsg. Soc. P. Ltd., Sanpada, Navi Mumbai - 400705</p>
+                    <div className="text-foreground/70 space-y-1">
+                      <div>
+                        <a href="tel:+919225304131" className="hover:text-[--primary]">+91 92253 04131</a>
+                      </div>
+                      <div>
+                        <a href="tel:+919225304132" className="hover:text-[--primary]">+91 92253 04132</a>
+                      </div>
+                      <div>
+                        <a href="tel:+919225909193" className="hover:text-[--primary]">+91 92259 09193</a>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div className="rounded-xl border border-border p-5 bg-white flex items-start gap-3">

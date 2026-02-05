@@ -116,18 +116,18 @@ export default function ServicesPage() {
             {[
               {
                 city: 'Navi Mumbai',
-                address: '304/ Kaveri Co-op Hsg. Soc. P. Ltd., Plot No. 73, Sec 05, Sanpada',
-                phone: '92253 04131'
+                address: 'Shri Sadguru Apartment, Shop No. 05, Plot No. 29/30, Sector 24, Behind Gupta Weigh Bridge, Turbhe Village, Sanpada, Navi Mumbai – 400705',
+                phone: '92253 04131 / 88505 87808'
               },
               {
-                city: 'Chakan',
-                address: '01, Gurukrupa Complex, Opp. Autocomp Co., Mahalunge Village',
-                phone: '92253 04133'
+                city: 'Chakan (Pune)',
+                address: 'Plot No. 425/4, Mahalunge, Telegaon-Chakan Road, Next to Bajaj Auto Ltd., Chakan, Pune – 410501',
+                phone: '92253 04133 / 95187 62843'
               },
               {
-                city: 'Aurangabad',
-                address: '14/1, FDC Road, MIDC Waluj',
-                phone: '92253 04132'
+                city: 'Chh. Sambhajinagar',
+                address: 'B-14/1, MIDC, Waluj, FDC Road, Waluj, Chh. Sambhajinagar – 431136',
+                phone: '92253 04132 / 92259 09193 / 93245 44211'
               }
             ].map((location) => (
               <div key={location.city} className="bg-white rounded-lg p-6 shadow-sm">

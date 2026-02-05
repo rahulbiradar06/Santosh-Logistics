@@ -277,28 +277,28 @@ function MapPresence() {
 
       const points: Array<{ name: string; lng: number; lat: number; link: string }> = [
         {
-          name: 'Head Office – Navi Mumbai',
-          lng: 73.0297,
-          lat: 19.0330,
-          link: 'https://www.google.com/maps?sca_esv=c66570702dbaae6e&output=search&q=navi+mumbai&source=lnms&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIeqK3zcKdlhNRMy2vkB84hfDg1H5k-4CUCQwiARoHjKyaWIA8t8_WTSMJH7S4iIh9SGfhFq6cJBGZygbmifJwpXYyhUsfYk3Lt6XJ7KkTur8_YqfigHiWBeg2HoXHa1FYrvGLyYt9OFc69AVZ_FMffI0_j53USq8b7yglZ9X5QdX3IUdTDA&entry=mc&ved=1t:200715&ictx=111',
+          name: 'Head Office – Sanpada, Navi Mumbai',
+          lng: 73.0147636,
+          lat: 19.0618929,
+          link: 'https://maps.app.goo.gl/swhx2XVaZFWnbhn39?g_st=ic',
         },
         {
-          name: 'Vashi Godown',
-          lng: 72.9977841,
-          lat: 19.0744857,
-          link: 'https://www.google.com/maps/place/Vashi,+Navi+Mumbai,+Maharashtra/@19.0765414,72.9779604,7198m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3be7c136b519107b:0x8452b99754be0fc8!8m2!3d19.0744857!4d72.9977841!16s%2Fg%2F12vswygmr?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D',
+          name: 'Booking Office – Mumbai Godown (Sanpada)',
+          lng: 73.0097404,
+          lat: 19.0686387,
+          link: 'https://maps.app.goo.gl/Nff66zsa2ofJPTGz9?g_st=ic',
         },
         {
-          name: 'Chakan Godown',
+          name: 'Chakan (Pune) Godown',
           lng: 73.8613203,
           lat: 18.7632075,
           link: 'https://www.google.com/maps/place/Chakan,+Maharashtra+410501/@18.7618079,73.8554341,3606m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bc2c9f585ac70d1:0x7269f7854109659!8m2!3d18.7632075!4d73.8613203!16s%2Fm%2F026gfww?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D',
         },
         {
-          name: 'Aurangabad (Chhatrapati Sambhajinagar) Godown',
-          lng: 75.3393195,
-          lat: 19.875754,
-          link: 'https://www.google.com/maps/place/Chhatrapati+Sambhajinagar,+Maharashtra/@19.8700773,75.2227999,28651m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bdb9815a369bc63:0x712d538b29a2a73e!8m2!3d19.875754!4d75.3393195!16zL20vMDJucGs1?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D',
+          name: 'Chh. Sambhajinagar Godown',
+          lng: 75.2352672,
+          lat: 19.8328217,
+          link: 'https://maps.app.goo.gl/HHj6Ypx4dXAwdZ5d6?g_st=ic',
         },
       ]
 
