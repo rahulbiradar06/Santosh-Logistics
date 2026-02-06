@@ -158,7 +158,7 @@ export default function ContactPage() {
                   <span className="mt-1">🕑</span>
                   <div>
                     <div className="font-semibold">Working Hours</div>
-                    <p className="text-foreground/70">Mon–Sat: 9:00 AM – 7:00 PM</p>
+                    <p className="text-foreground/70">Mon–Sat: 7:30 AM – 7:00 PM</p>
                   </div>
                 </div>
               </div>
