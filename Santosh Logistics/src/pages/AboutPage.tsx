@@ -1,183 +1,174 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
+import { Shield, Clock, Users, Target, Sparkles, Heart, Phone, ArrowRight, MapPin } from 'lucide-react'
 import TeamImg from '@/assets/about/team.png'
 import OfficeImg from '@/assets/about/office3.jpeg'
 import KrishnaImg from '@/assets/about/krishna.png'
 import SantoshImg from '@/assets/about/santosh.png'
 import AvantiImg from '@/assets/about/avanti.png'
 import Team3Img from '@/assets/about/team3.png'
+import { COMPANY, OFFICES } from '@/data/siteData'
+
+const qualityPolicies = [
+  { icon: Shield, title: 'Safe Transport', desc: 'We prioritize the safety of your goods with well-maintained vehicles and trained drivers.' },
+  { icon: Clock, title: 'Timely Delivery', desc: 'Commitment to on-time delivery through efficient route planning and tracking.' },
+  { icon: Users, title: 'Team Excellence', desc: 'Continuous training and development of our team for better service delivery.' },
+  { icon: Target, title: 'Quality Focus', desc: 'Regular monitoring and improvement of our service quality standards.' },
+  { icon: Sparkles, title: 'Prompt Response', desc: 'Quick and positive response to all customer queries and requirements.' },
+  { icon: Heart, title: 'Customer First', desc: 'Customer satisfaction is at the heart of everything we do.' },
+]
+
+const values = [
+  { title: 'Customer-first', desc: 'Responsive, reliable, and transparent operations.' },
+  { title: 'Operational Excellence', desc: 'Standardized processes & modern tracking.' },
+  { title: 'Deep Roots', desc: 'Decades of partnerships with industry leaders.' },
+  { title: 'Safety & Care', desc: 'Maintained fleet and trained personnel.' },
+]
+
+const leaders = [
+  { name: 'Late Mr. Krishna B. Parab', role: 'Founder', img: KrishnaImg },
+  { name: 'Mr. Santosh Krishna Parab', role: 'Director', img: SantoshImg },
+  { name: 'Mrs. Avanti Parab', role: 'Director', img: AvantiImg },
+]
+
 export default function AboutPage() {
   return (
-    <div className="pt-20">
-      {/* Hero Section */}
-      <section className="relative pt-28 pb-20 md:pt-36 min-h-[520px] md:min-h-[620px] overflow-hidden">
+    <div>
+      {/* ── Hero ── */}
+      <section className="relative py-28 md:py-36 min-h-[520px] md:min-h-[620px] overflow-hidden">
         <div
           className="absolute inset-0 -z-10 bg-[position:50%_12%] bg-cover"
           style={{ backgroundImage: `url(${TeamImg})` }}
         />
-        <div className="absolute inset-0 -z-0 bg-black/20" />
-        <div className="container-xl text-white">
-          <div className="max-w-4xl -translate-y-2 -translate-x-2 md:-translate-y-4 md:-translate-x-4 transition-transform">
-            
-            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4">About Santosh Logistics</h1>
-            {/* <p className="text-lg md:text-xl text-white/90 max-w-2xl">
-              Maharashtra’s trusted logistics partner delivering reliability, safety, and service excellence
+        <div className="absolute inset-0 -z-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
+        <div className="container-xl relative text-white">
+          <div className="max-w-3xl">
+            <span className="inline-block text-sm font-semibold uppercase tracking-wider text-primary mb-3">About Us</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-5">
+              About Santosh Logistics
+            </h1>
+            <p className="text-lg md:text-xl text-white/80 max-w-2xl">
+              Maharashtra's trusted logistics partner delivering reliability, safety, and service excellence
               across industrial hubs for over three decades.
-            </p> */}
-
-            {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
               {[
                 { label: 'Years', value: '25+' },
                 { label: 'Deliveries/mo', value: '1000+' },
                 { label: 'Fleet Size', value: '50+' },
                 { label: 'On-time', value: '99%' },
               ].map((s) => (
-                <div key={s.label} className="rounded-lg bg-white/10  p-4 text-center border border-white/10">
+                <div key={s.label} className="rounded-xl bg-white/10 backdrop-blur-sm p-4 text-center ring-1 ring-white/10">
                   <div className="text-2xl font-bold">{s.value}</div>
-                  <div className="text-white/80 text-sm">{s.label}</div>
+                  <div className="text-white/70 text-sm">{s.label}</div>
                 </div>
               ))}
-            </div> */}
+            </div>
           </div>
         </div>
       </section>
 
-     
-
-      {/* Company Overview */}
+      {/* ── Our Story + Map ── */}
       <section className="py-20 bg-white">
         <div className="container-xl">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
             <div>
-              <h2 className="text-3xl font-bold mb-4">Our Story</h2>
-              <p className="text-foreground/70">
+              <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-3">Our Story</span>
+              <h2 className="text-3xl md:text-4xl font-bold mb-5">Built on Trust Since 1990</h2>
+              <p className="text-foreground/60 text-lg mb-8 leading-relaxed">
                 Founded by Late Mr. Krishna B. Parab, Santosh Logistics has grown from a small transport
-                business into one of Maharashtra’s most trusted logistics partners.
+                business into one of Maharashtra's most trusted logistics partners. Today, we serve leading
+                manufacturers with a modern fleet and dedicated team.
               </p>
-              <div className="mt-6 grid sm:grid-cols-2 gap-4">
-                {[
-                  { title: 'Customer-first', desc: 'Responsive, reliable, and transparent operations.' },
-                  { title: 'Operational Excellence', desc: 'Standardized processes & modern tracking.' },
-                  { title: 'Deep Roots', desc: 'Decades of partnerships with industry leaders.' },
-                  { title: 'Safety & Care', desc: 'Maintained fleet and trained personnel.' },
-                ].map((i) => (
-                  <div key={i.title} className="p-4 rounded-lg border border-border">
-                    <h3 className="font-semibold mb-1">{i.title}</h3>
-                    <p className="text-sm text-foreground/70">{i.desc}</p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {values.map((v) => (
+                  <div key={v.title} className="p-5 rounded-xl border border-border hover:border-primary/30 hover:shadow-sm transition-all">
+                    <h3 className="font-semibold mb-1">{v.title}</h3>
+                    <p className="text-sm text-foreground/60">{v.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
             <div>
-              <h2 className="text-3xl font-bold mb-4">Our Presence</h2>
-              <p className="text-foreground/70 mb-4">Explore our key locations across Maharashtra on the map.</p>
+              <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-3">Our Presence</span>
+              <h2 className="text-3xl font-bold mb-4">Across Maharashtra</h2>
+              <p className="text-foreground/60 mb-5">Explore our key locations on the interactive map.</p>
               <MapPresence />
+              <div className="mt-6 space-y-3">
+                {OFFICES.map((o) => (
+                  <a
+                    key={o.name}
+                    href={o.mapLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/30 hover:bg-accent/20 transition-all text-sm group"
+                  >
+                    <MapPin className="h-4 w-4 text-primary shrink-0" />
+                    <div>
+                      <span className="font-medium group-hover:text-primary transition-colors">{o.name}</span>
+                      <span className="text-foreground/50 ml-2">{o.city}</span>
+                    </div>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Quality Policy */}
+      {/* ── Quality Policy ── */}
       <section className="py-20 relative overflow-hidden">
         <div
           className="absolute inset-0 -z-10 bg-center bg-cover"
           style={{ backgroundImage: `url(${OfficeImg})` }}
         />
-        <div className="absolute inset-0 -z-0 bg-black/30" />
+        <div className="absolute inset-0 -z-0 bg-black/60" />
         <div className="container-xl relative">
-          <h2 className="text-3xl font-bold mb-12 text-center text-white">Our Quality Policy</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                title: 'Safe Transport',
-                description:
-                  'We prioritize the safety of your goods with well-maintained vehicles and trained drivers.',
-              },
-              {
-                title: 'Prompt Response',
-                description: 'Quick and positive response to all customer queries and requirements.',
-              },
-              {
-                title: 'Team Excellence',
-                description: 'Continuous training and development of our team for better service delivery.',
-              },
-              {
-                title: 'Timely Delivery',
-                description: 'Commitment to on-time delivery through efficient route planning and tracking.',
-              },
-              {
-                title: 'Quality Focus',
-                description: 'Regular monitoring and improvement of our service quality standards.',
-              },
-              {
-                title: 'Customer First',
-                description: 'Customer satisfaction is at the heart of everything we do.',
-              },
-            ].map((policy) => (
+          <div className="text-center mb-14">
+            <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-3">Quality</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">Our Quality Policy</h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {qualityPolicies.map((p) => (
               <div
-                key={policy.title}
-                className="bg-white/30 backdrop-blur-md rounded-lg p-6 border border-border hover:shadow-sm transition-shadow"
+                key={p.title}
+                className="bg-white/10 backdrop-blur-md rounded-2xl p-7 border border-white/10 hover:bg-white/15 transition-colors"
               >
-                <h3 className="text-xl font-semibold mb-3">{policy.title}</h3>
-                <p className="text-foreground/70">{policy.description}</p>
+                <div className="inline-flex items-center justify-center h-11 w-11 rounded-xl bg-white/15 mb-4">
+                  <p.icon className="h-5 w-5 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">{p.title}</h3>
+                <p className="text-sm text-white/70 leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Core Values */}
-      {/* <section className="py-20 bg-white">
-        <div className="container-xl">
-          <h2 className="text-3xl font-bold mb-10 text-center">Our Core Values</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: '🤝', title: 'Integrity', desc: 'Honest commitments and transparent operations.' },
-              { icon: '⏱️', title: 'Reliability', desc: 'On-time deliveries with consistent quality.' },
-              { icon: '🛡️', title: 'Safety', desc: 'Care for cargo and people comes first.' },
-              { icon: '🚀', title: 'Improvement', desc: 'Always refining processes and performance.' },
-            ].map((v) => (
-              <div key={v.title} className="p-6 rounded-lg border border-border text-center">
-                <div className="text-3xl mb-3">{v.icon}</div>
-                <div className="font-semibold mb-1">{v.title}</div>
-                <div className="text-sm text-foreground/70">{v.desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* Leadership */}
+      {/* ── Leadership ── */}
       <section className="py-20 bg-white">
         <div className="container-xl">
-          <h2 className="text-3xl font-bold mb-12 text-center">Our Leadership</h2>
+          <div className="text-center mb-14">
+            <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-3">Leadership</span>
+            <h2 className="text-3xl md:text-4xl font-bold">Our Leadership</h2>
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {[
-              { name: 'Late Mr. Krishna B. Parab', role: 'Founder', img: KrishnaImg },
-              { name: 'Mr. Santosh Krishna Parab', role: 'Director', img: SantoshImg },
-              { name: 'Mrs. Avanti Parab', role: 'Director', img: AvantiImg },
-            ].map((p) => (
+            {leaders.map((p) => (
               <div
                 key={p.name}
-                className="group overflow-hidden rounded-xl border border-border bg-white shadow-sm transition hover:shadow-md"
+                className="group overflow-hidden rounded-2xl border border-border bg-white shadow-sm transition-all hover:shadow-lg hover:-translate-y-1"
               >
-                <div className="relative bg-[#f5f5f5]">
-                  <div
-                    className="pointer-events-none absolute inset-0 opacity-60"
-                    style={{
-                      backgroundImage:
-                        'radial-gradient(circle at 50% 30%, rgba(0,0,0,0.08) 1px, transparent 1px), radial-gradient(circle at 70% 60%, rgba(0,0,0,0.06) 1px, transparent 1px)',
-                      backgroundSize: '22px 22px, 28px 28px',
-                    }}
-                  />
+                <div className="relative bg-gradient-to-b from-accent/30 to-transparent">
                   <img
                     src={p.img}
                     alt={p.name}
-                    className="relative z-10 block h-72 md:h-80 w-full object-cover object-top rounded-t-xl"
+                    className="block h-72 md:h-80 w-full object-cover object-top"
+                    loading="lazy"
                   />
                 </div>
-                <div className="p-5">
-                  <h3 className="text-lg md:text-xl font-extrabold text-foreground">{p.name}</h3>
-                  <p className="mt-1 text-sm md:text-base text-foreground/70 italic font-serif">{p.role}</p>
+                <div className="p-6">
+                  <h3 className="text-lg md:text-xl font-bold text-foreground">{p.name}</h3>
+                  <p className="mt-1 text-sm text-primary font-medium">{p.role}</p>
                 </div>
               </div>
             ))}
@@ -185,56 +176,57 @@ export default function AboutPage() {
         </div>
       </section>
 
-
-       {/* Our Team */}
-       <section className="py-20 bg-white">
+      {/* ── Our Team ── */}
+      <section className="py-20 bg-accent/20">
         <div className="container-xl">
-          <div className="grid md:grid-cols-2 gap-10 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Team</h2>
-              <p className="text-foreground/70 md:text-lg">
+              <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-3">Our People</span>
+              <h2 className="text-3xl md:text-4xl font-bold mb-5">Our Team</h2>
+              <p className="text-foreground/60 text-lg leading-relaxed">
                 A committed group of professionals powering reliable logistics operations across Maharashtra. We
                 take pride in teamwork, safety, and customer-first service.
               </p>
             </div>
-            <div className="relative overflow-hidden rounded-xl border border-border bg-white flex items-center justify-center">
+            <div className="relative overflow-hidden rounded-2xl border border-border bg-white">
               <img
                 src={Team3Img}
                 alt="Santosh Logistics Team"
                 className="block w-full h-[320px] md:h-[460px] object-contain object-center bg-white"
+                loading="lazy"
               />
-              {/* <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-transparent via-white/70 to-white" /> */}
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      {/* <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[--primary]">
-          <div className="absolute inset-0 bg-[linear-gradient(30deg,var(--primary)_50%,var(--secondary)_100%)] opacity-90"></div>
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)',
-              backgroundSize: '32px 32px',
-            }}
-          ></div>
-        </div>
+      {/* ── CTA ── */}
+      <section className="py-20 bg-secondary relative overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}
+        />
         <div className="container-xl relative text-center text-white">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Built on Trust. Driven by Reliability.</h2>
-          <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-5">Built on Trust. Driven by Reliability.</h2>
+          <p className="text-white/60 text-lg mb-10 max-w-2xl mx-auto">
             Partner with Santosh Logistics for dependable, on-time deliveries across Maharashtra.
           </p>
-          <a
-            href="/contact"
-            className="inline-flex items-center justify-center rounded-md bg-white px-8 py-3 text-lg font-medium text-[--primary] shadow-sm hover:bg-white/90 transition-colors"
-          >
-            Contact Us
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href={COMPANY.phones[0].href}
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-lg font-semibold text-white shadow-lg hover:-translate-y-0.5 transition-all"
+            >
+              <Phone className="h-5 w-5" /> Call Now
+            </a>
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 px-8 py-4 text-lg font-medium text-white ring-1 ring-white/20 hover:bg-white/15 transition-colors"
+            >
+              Contact Us <ArrowRight className="h-5 w-5" />
+            </Link>
+          </div>
         </div>
-      </section> */}
+      </section>
     </div>
   )
 }
@@ -247,7 +239,6 @@ function MapPresence() {
     let isCancelled = false
 
     async function init() {
-      // Ensure Mapbox CSS is loaded (avoid direct package CSS import to prevent Vite resolution errors)
       const cssId = 'mapbox-gl-css'
       if (!document.getElementById(cssId)) {
         const link = document.createElement('link')
@@ -275,44 +266,19 @@ function MapPresence() {
 
       mapRef.current = map
 
-      const points: Array<{ name: string; lng: number; lat: number; link: string }> = [
-        {
-          name: 'Head Office – Sanpada, Navi Mumbai',
-          lng: 73.0147636,
-          lat: 19.0618929,
-          link: 'https://maps.app.goo.gl/swhx2XVaZFWnbhn39?g_st=ic',
-        },
-        {
-          name: 'Booking Office – Mumbai Godown (Sanpada)',
-          lng: 73.0097404,
-          lat: 19.0686387,
-          link: 'https://maps.app.goo.gl/Nff66zsa2ofJPTGz9?g_st=ic',
-        },
-        {
-          name: 'Chakan (Pune) Godown',
-          lng: 73.8613203,
-          lat: 18.7632075,
-          link: 'https://www.google.com/maps/place/Chakan,+Maharashtra+410501/@18.7618079,73.8554341,3606m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bc2c9f585ac70d1:0x7269f7854109659!8m2!3d18.7632075!4d73.8613203!16s%2Fm%2F026gfww?entry=ttu&g_ep=EgoyMDI1MTAyMi4wIKXMDSoASAFQAw%3D%3D',
-        },
-        {
-          name: 'Chh. Sambhajinagar Godown',
-          lng: 75.2352672,
-          lat: 19.8328217,
-          link: 'https://maps.app.goo.gl/HHj6Ypx4dXAwdZ5d6?g_st=ic',
-        },
-      ]
-
       const bounds = new mapbox.LngLatBounds()
-      points.forEach((p) => bounds.extend([p.lng, p.lat]))
 
-      points.forEach((p) => {
+      OFFICES.forEach((o) => {
+        bounds.extend([o.lng, o.lat])
+
         const marker = new mapbox.Marker()
-          .setLngLat([p.lng, p.lat])
+          .setLngLat([o.lng, o.lat])
           .addTo(map)
 
         const popup = new mapbox.Popup({ offset: 12 }).setHTML(
-          `<div style="font-weight:600;margin-bottom:4px;">${p.name}</div>
-           <a href="${p.link}" target="_blank" style="color:var(--primary);text-decoration:underline;">Open in Google Maps</a>`
+          `<div style="font-weight:600;margin-bottom:4px;">${o.name}</div>
+           <div style="font-size:12px;color:#666;margin-bottom:6px;">${o.city}</div>
+           <a href="${o.mapLink}" target="_blank" style="color:var(--primary);text-decoration:underline;font-size:13px;">Open in Google Maps</a>`
         )
 
         marker.setPopup(popup)
@@ -338,12 +304,12 @@ function MapPresence() {
   return (
     <div>
       {tokenMissing && (
-        <div className="mb-3 rounded-md border border-dashed border-border p-3 text-sm text-foreground/70">
-          Map is disabled: please set <code>VITE_MAPBOX_TOKEN</code> in your <code>.env</code>.
+        <div className="mb-3 rounded-xl border border-dashed border-border p-4 text-sm text-foreground/60">
+          Map is disabled — set <code className="bg-muted px-1.5 py-0.5 rounded text-xs">VITE_MAPBOX_TOKEN</code> in your <code className="bg-muted px-1.5 py-0.5 rounded text-xs">.env</code> file.
         </div>
       )}
-      <div ref={containerRef} className="h-80 w-full rounded-lg border border-border overflow-hidden" />
-      <p className="mt-2 text-xs text-foreground/60">Tip: Click a marker to open its Google Maps location.</p>
+      <div ref={containerRef} className="h-80 w-full rounded-xl border border-border overflow-hidden shadow-sm" />
+      <p className="mt-2 text-xs text-foreground/50">Click a marker to open its Google Maps location.</p>
     </div>
   )
 }

@@ -1,182 +1,211 @@
+import { Phone, Mail, Clock, Send, User, MessageSquare, FileText } from 'lucide-react'
 import ContactBanner from '@/assets/contactus/banner.jpeg'
+import { COMPANY } from '@/data/siteData'
+
 export default function ContactPage() {
   return (
-    <div className="pt-20">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 min-h-[520px] md:min-h-[620px]">
-        <div className="absolute inset-0 bg-[--primary]">
-          <div
-            className="absolute inset-0 bg-cover bg-[position:50%_20%]"
-            style={{ backgroundImage: `url(${ContactBanner})` }}
-          />
-          {/* <div className="absolute inset-0 bg-[linear-gradient(30deg,var(--primary)_50%,var(--secondary)_100%)] opacity-90" /> */}
-          <div className="absolute inset-0 -z-0 bg-black/30" />
-          <div
-            className="absolute inset-0 opacity-20"
-            style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.3) 1px, transparent 0)', backgroundSize: '28px 28px' }}
-          />
-        </div>
+    <div>
+      {/* ── Hero ── */}
+      <section className="relative py-28 md:py-36 overflow-hidden">
+        <div className="absolute inset-0 -z-10 bg-cover bg-[position:50%_20%]" style={{ backgroundImage: `url(${ContactBanner})` }} />
+        <div className="absolute inset-0 -z-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
         <div className="container-xl relative text-white">
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-4">Get in Touch with Us</h1>
-          <p className="text-lg md:text-xl text-white/90 max-w-3xl">
-            Have questions about transport, warehousing, or deliveries? We’re here to help. Reach out for quotes,
-            support, or general inquiries.
+          <span className="inline-block text-sm font-semibold uppercase tracking-wider text-primary mb-3">Contact</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5">Get in Touch</h1>
+          <p className="text-lg md:text-xl text-white/80 max-w-2xl">
+            Have questions about transport, warehousing, or deliveries? We're here to help.
           </p>
         </div>
       </section>
 
-      {/* Contact Information */}
+      {/* ── Quick contact cards ── */}
+      <section className="py-0 -mt-12 relative z-10">
+        <div className="container-xl">
+          <div className="grid sm:grid-cols-3 gap-4">
+            {[
+              {
+                icon: Phone,
+                title: 'Call Us',
+                content: COMPANY.phones[0].label,
+                href: COMPANY.phones[0].href,
+                accent: true,
+              },
+              {
+                icon: Mail,
+                title: 'Email Us',
+                content: COMPANY.email,
+                href: `mailto:${COMPANY.email}`,
+                accent: false,
+              },
+              {
+                icon: Clock,
+                title: 'Business Hours',
+                content: COMPANY.hours.weekday,
+                href: undefined,
+                accent: false,
+              },
+            ].map((card) => (
+              <div
+                key={card.title}
+                className={`rounded-2xl p-6 shadow-lg ${
+                  card.accent ? 'bg-primary text-white' : 'bg-white border border-border'
+                }`}
+              >
+                <div className={`inline-flex items-center justify-center h-11 w-11 rounded-xl mb-4 ${
+                  card.accent ? 'bg-white/20' : 'bg-accent/50'
+                }`}>
+                  <card.icon className={`h-5 w-5 ${card.accent ? 'text-white' : 'text-primary'}`} />
+                </div>
+                <h3 className={`font-semibold mb-1 ${card.accent ? '' : 'text-foreground'}`}>{card.title}</h3>
+                {card.href ? (
+                  <a href={card.href} className={`text-sm ${card.accent ? 'text-white/90 hover:text-white' : 'text-foreground/60 hover:text-primary'} transition`}>
+                    {card.content}
+                  </a>
+                ) : (
+                  <p className={`text-sm ${card.accent ? 'text-white/90' : 'text-foreground/60'}`}>{card.content}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Form + sidebar ── */}
       <section className="py-20 bg-white">
         <div className="container-xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10">
-            {/* Left: Form card */}
+          <div className="grid lg:grid-cols-12 gap-10">
+            {/* Form */}
             <div className="lg:col-span-7">
-              <div className="rounded-2xl border border-border shadow-sm hover:shadow-md transition-shadow p-6 md:p-8 bg-white">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-[--accent]/20 text-[--accent-foreground] px-3 py-1 text-xs font-medium ring-1 ring-[--accent]/30">Support</span>
-                </div>
-                <h2 className="text-2xl font-bold">Have Questions? We’re Just a Message Away!</h2>
-                <p className="text-foreground/70 mt-1 mb-6">Fill out the form and our team will get back to you shortly.</p>
+              <div className="rounded-2xl border border-border p-7 md:p-9 bg-white shadow-sm">
+                <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-2">Send a Message</span>
+                <h2 className="text-2xl md:text-3xl font-bold mb-2">We'd Love to Hear From You</h2>
+                <p className="text-foreground/60 mb-8">Fill out the form and our team will get back to you shortly.</p>
 
-                <form
-                  className="space-y-5"
-                  action="https://formspree.io/f/mldznlpn"
-                  method="POST"
-                >
-                  {/* Helpful hidden fields for Formspree */}
+                <form className="space-y-5" action="https://formspree.io/f/mldznlpn" method="POST">
                   <input type="hidden" name="_subject" value="New message from Santosh Logistics website" />
-                  {/* Honeypot field to reduce spam */}
                   <input type="text" name="_gotcha" className="hidden" aria-hidden="true" tabIndex={-1} />
+
                   <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="relative">
+                    <div>
                       <label className="block text-sm font-medium mb-2" htmlFor="firstName">First Name</label>
-                      <span className="pointer-events-none absolute left-3 top-[42px] text-foreground/50">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                      </span>
-                      <input id="firstName" name="firstName" type="text" className="w-full rounded-md border border-border pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-[--primary]" required />
+                      <div className="relative">
+                        <User className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground/40" />
+                        <input id="firstName" name="firstName" type="text" placeholder="John" className="w-full rounded-xl border border-border bg-accent/10 pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition" required />
+                      </div>
                     </div>
-                    <div className="relative">
+                    <div>
                       <label className="block text-sm font-medium mb-2" htmlFor="lastName">Last Name</label>
-                      <span className="pointer-events-none absolute left-3 top-[42px] text-foreground/50">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                      </span>
-                      <input id="lastName" name="lastName" type="text" className="w-full rounded-md border border-border pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-[--primary]" />
+                      <div className="relative">
+                        <User className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground/40" />
+                        <input id="lastName" name="lastName" type="text" placeholder="Doe" className="w-full rounded-xl border border-border bg-accent/10 pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition" />
+                      </div>
                     </div>
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="relative">
+                    <div>
                       <label className="block text-sm font-medium mb-2" htmlFor="email">Email</label>
-                      <span className="pointer-events-none absolute left-3 top-[42px] text-foreground/50">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M4 6h16v12H4z"/><path d="m22 7-10 7L2 7"/></svg>
-                      </span>
-                      <input id="email" name="email" type="email" className="w-full rounded-md border border-border pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-[--primary]" required />
+                      <div className="relative">
+                        <Mail className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground/40" />
+                        <input id="email" name="email" type="email" placeholder="you@example.com" className="w-full rounded-xl border border-border bg-accent/10 pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition" required />
+                      </div>
                     </div>
-                    <div className="relative">
+                    <div>
                       <label className="block text-sm font-medium mb-2" htmlFor="phone">Phone</label>
-                      <span className="pointer-events-none absolute left-3 top-[42px] text-foreground/50">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.3 1.78.54 2.65a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.39-1.11a2 2 0 0 1 2.11-.45c.87.24 1.75.42 2.65.54A2 2 0 0 1 22 16.92z"/></svg>
-                      </span>
-                      <input id="phone" name="phone" type="tel" className="w-full rounded-md border border-border pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-[--primary]" />
+                      <div className="relative">
+                        <Phone className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground/40" />
+                        <input id="phone" name="phone" type="tel" placeholder="+91 XXXXX XXXXX" className="w-full rounded-xl border border-border bg-accent/10 pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition" />
+                      </div>
                     </div>
                   </div>
 
-                  <div className="relative">
+                  <div>
                     <label className="block text-sm font-medium mb-2" htmlFor="subject">Subject</label>
-                    <span className="pointer-events-none absolute left-3 top-[42px] text-foreground/50">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M4 4h16v4H4z"/><path d="M4 12h10"/><path d="M4 16h8"/></svg>
-                    </span>
-                    <select id="subject" name="subject" className="w-full rounded-md border border-border pl-10 pr-8 py-2 focus:outline-none focus:ring-2 focus:ring-[--primary]">
-                      <option>General Inquiry</option>
-                      <option>Get a Quote</option>
-                      <option>Track a Delivery</option>
-                      <option>Careers</option>
-                    </select>
+                    <div className="relative">
+                      <FileText className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground/40" />
+                      <select id="subject" name="subject" className="w-full rounded-xl border border-border bg-accent/10 pl-10 pr-8 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition appearance-none">
+                        <option>General Inquiry</option>
+                        <option>Get a Quote</option>
+                        <option>Track a Delivery</option>
+                        <option>Careers</option>
+                      </select>
+                    </div>
                   </div>
 
-                  <div className="relative">
+                  <div>
                     <label className="block text-sm font-medium mb-2" htmlFor="message">Message</label>
-                    <span className="pointer-events-none absolute left-3 top-[42px] text-foreground/50">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M21 15a4 4 0 0 1-4 4H7l-4 4V5a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
-                    </span>
-                    <textarea id="message" name="message" rows={4} className="w-full rounded-md border border-border pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-[--primary]" required></textarea>
+                    <div className="relative">
+                      <MessageSquare className="pointer-events-none absolute left-3 top-3 h-4 w-4 text-foreground/40" />
+                      <textarea id="message" name="message" rows={4} placeholder="Tell us about your requirements..." className="w-full rounded-xl border border-border bg-accent/10 pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition resize-none" required />
+                    </div>
                   </div>
-
-                  {/* <div className="flex items-start gap-2">
-                    <input id="consent" type="checkbox" className="mt-1 h-4 w-4 rounded border-border text-[--primary] focus:ring-[--primary]" />
-                    <label htmlFor="consent" className="text-sm text-foreground/70">I agree to the processing of my information in accordance with the privacy policy.</label>
-                  </div> */}
 
                   <button
                     type="submit"
-                    className="group relative w-full inline-flex items-center justify-center gap-2 rounded-full bg-sky-600 hover:bg-sky-700 px-6 py-3 text-base md:text-lg font-semibold text-white shadow-md hover:shadow-lg transition-all duration-200 hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-600"
+                    className="group w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-white shadow-md shadow-primary/20 hover:shadow-lg hover:-translate-y-0.5 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
                   >
-                    <span>Send Message</span>
-                    <span className="transition-transform group-hover:translate-x-1" aria-hidden>↗</span>
+                    <Send className="h-4 w-4" />
+                    Send Message
                   </button>
                 </form>
               </div>
             </div>
 
-            {/* Right: Promo + contact cards */}
+            {/* Sidebar */}
             <div className="lg:col-span-5 space-y-6">
-              {/* Promo card */}
-              <div className="rounded-2xl border border-border overflow-hidden bg-[--accent]/20">
-                <div className="p-6 md:p-8">
-                  <h3 className="text-2xl font-bold text-foreground mb-2">Our experts will always help you</h3>
-                  <p className="text-foreground/70">Dedicated support from an experienced logistics team.</p>
-                </div>
+              {/* Promo */}
+              <div className="rounded-2xl bg-secondary p-7 md:p-8 text-white">
+                <h3 className="text-2xl font-bold mb-3">Our experts will always help you</h3>
+                <p className="text-white/70 mb-6">Dedicated support from an experienced logistics team ready to assist you.</p>
+                <a
+                  href={COMPANY.phones[0].href}
+                  className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary/90 transition"
+                >
+                  <Phone className="h-4 w-4" /> Call Now
+                </a>
               </div>
 
-              {/* Contact info stacked cards */}
-              <div className="space-y-4">
-                <div className="rounded-xl border border-border p-5 bg-white flex items-start gap-3">
-                  <span className="mt-1">✉️</span>
+              {/* Contact details */}
+              <div className="rounded-2xl border border-border p-7 bg-white space-y-5">
+                <h3 className="font-semibold text-lg">Contact Details</h3>
+
+                <div className="flex items-start gap-3">
+                  <div className="flex items-center justify-center h-9 w-9 rounded-lg bg-accent/50 shrink-0 mt-0.5">
+                    <Mail className="h-4 w-4 text-primary" />
+                  </div>
                   <div>
-                    <div className="font-semibold">Email</div>
-                    <a href="mailto:santoshlog.waluj@gmail.com" className="text-foreground/70 hover:text-[--primary]">santoshlog.waluj@gmail.com</a>
+                    <div className="text-sm font-medium mb-0.5">Email</div>
+                    <a href={`mailto:${COMPANY.email}`} className="text-sm text-foreground/60 hover:text-primary transition">{COMPANY.email}</a>
                   </div>
                 </div>
-                <div className="rounded-xl border border-border p-5 bg-white flex items-start gap-3">
-                  <span className="mt-1">📞</span>
+
+                <div className="flex items-start gap-3">
+                  <div className="flex items-center justify-center h-9 w-9 rounded-lg bg-accent/50 shrink-0 mt-0.5">
+                    <Phone className="h-4 w-4 text-primary" />
+                  </div>
                   <div>
-                    <div className="font-semibold">Call</div>
-                    <div className="text-foreground/70 space-y-1">
-                      <div>
-                        <a href="tel:+919225304131" className="hover:text-[--primary]">+91 92253 04131</a>
-                      </div>
-                      <div>
-                        <a href="tel:+919225304132" className="hover:text-[--primary]">+91 92253 04132</a>
-                      </div>
-                      <div>
-                        <a href="tel:+919225909193" className="hover:text-[--primary]">+91 92259 09193</a>
-                      </div>
+                    <div className="text-sm font-medium mb-1">Phone</div>
+                    <div className="space-y-1">
+                      {COMPANY.phones.map((p) => (
+                        <a key={p.href} href={p.href} className="block text-sm text-foreground/60 hover:text-primary transition">{p.label}</a>
+                      ))}
                     </div>
                   </div>
                 </div>
-                <div className="rounded-xl border border-border p-5 bg-white flex items-start gap-3">
-                  <span className="mt-1">🕑</span>
+
+                <div className="flex items-start gap-3">
+                  <div className="flex items-center justify-center h-9 w-9 rounded-lg bg-accent/50 shrink-0 mt-0.5">
+                    <Clock className="h-4 w-4 text-primary" />
+                  </div>
                   <div>
-                    <div className="font-semibold">Working Hours</div>
-                    <p className="text-foreground/70">Mon–Sat: 7:30 AM – 7:00 PM</p>
+                    <div className="text-sm font-medium mb-0.5">Working Hours</div>
+                    <p className="text-sm text-foreground/60">{COMPANY.hours.weekday}</p>
+                    <p className="text-sm text-foreground/60">{COMPANY.hours.weekend}</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Business Hours */}
-      <section className="py-20 bg-accent/40">
-        <div className="container-xl text-center">
-          <h2 className="text-2xl font-bold mb-6">Business Hours</h2>
-          <p className="text-foreground/70">
-            Monday - Saturday: 7:30 AM - 7:00 PM IST
-          </p>
-          <p className="text-foreground/70">
-            Sunday: Closed
-          </p>
         </div>
       </section>
     </div>

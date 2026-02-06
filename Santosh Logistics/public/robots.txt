@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://santoshlogistics.in/sitemap.xml

@@ -1,72 +1,85 @@
 import { Link } from 'react-router-dom'
+import { Phone, ArrowRight, Truck, Shield, Clock, Award, MapPin, Headphones } from 'lucide-react'
 import heroImg from '../assets/transport/5.jpg'
-import iconOnTime from '@/assets/transport/5.jpg'
-import iconSafe from '@/assets/about/office3.jpeg'
-import iconSupport from '@/assets/clients/team2.png'
-import iconExperience from '@/assets/services/office.png'
+import warehouseImg from '@/assets/warehouse/1.jpg'
+import { COMPANY, OFFICES, TESTIMONIALS } from '@/data/siteData'
+
+// Client logos for trust strip
+import bajajauto from '@/assets/clients/bajajauto.png'
+import varroc from '@/assets/clients/varroc.png'
+import endurance from '@/assets/clients/endurance.jpeg'
+import minda from '@/assets/clients/minda.png'
+import badve from '@/assets/clients/bavde.jpeg'
+
+const clientLogos = [
+  { name: 'Bajaj Auto', src: bajajauto },
+  { name: 'Varroc', src: varroc },
+  { name: 'Endurance', src: endurance },
+  { name: 'Minda Sai', src: minda },
+  { name: 'Badve', src: badve },
+]
+
+const whyUs = [
+  { icon: Clock, title: 'On-time Delivery', desc: 'Efficient route planning and proactive tracking to meet your deadlines.' },
+  { icon: Shield, title: 'Safe & Secure', desc: 'Well-maintained fleet and trained drivers to safeguard your goods.' },
+  { icon: Headphones, title: 'Responsive Support', desc: 'Quick coordination and real-time updates throughout the delivery cycle.' },
+  { icon: Award, title: '25+ Years Experience', desc: 'A proven track record with leading manufacturers across Maharashtra.' },
+  { icon: Truck, title: 'Modern Fleet', desc: 'GPS-enabled vehicles with real-time tracking across all routes.' },
+  { icon: MapPin, title: 'Strategic Coverage', desc: 'Warehouses in Navi Mumbai, Pune, and Chh. Sambhajinagar.' },
+]
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden rounded-b-[36px] md:rounded-b-[64px]">
-        {/* Background overlay */}
-        <div className="absolute inset-0 -z-10 bg-black/50"></div>
-        {/* Background image */}
+      {/* ── Hero ── */}
+      <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 -z-20">
-          <img 
-            src={heroImg} 
-            alt="Transport fleet" 
-            className="w-full h-full object-cover"
-          />
+          <img src={heroImg} alt="Transport fleet" className="w-full h-full object-cover" loading="eager" />
         </div>
-        
-        {/* Content */}
-        <div className="container-xl pt-24">
-          <div className="max-w-3xl">
-            {/* Badge row */}
-            <div className="flex items-center gap-2 mb-4">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm text-white/90 backdrop-blur">
-                <span className="h-2 w-2 rounded-full bg-[--accent]"></span>
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
+
+        <div className="container-xl relative py-24">
+          <div className="max-w-2xl">
+            <div className="flex flex-wrap items-center gap-2 mb-6">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm px-4 py-1.5 text-sm text-white/90 ring-1 ring-white/20">
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
                 Since 1990
               </span>
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm text-white/90 backdrop-blur">
-                <span className="h-2 w-2 rounded-full bg-[--secondary]"></span>
-                Trusted by leading manufacturers
+              <span className="inline-flex items-center gap-2 rounded-full bg-primary/20 backdrop-blur-sm px-4 py-1.5 text-sm text-white/90 ring-1 ring-primary/30">
+                Trusted by industry leaders
               </span>
             </div>
 
-            {/* Headline */}
-            <h1 className="whitespace-nowrap text-[clamp(22px,7.5vw,44px)] md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 leading-[1.05]">
-              Speed • Secure •
-              <span className="relative inline-block">
-                <span className="px-2 md:px-3">Supply</span>
-                <span className="pointer-events-none absolute inset-x-0 bottom-1 h-2 bg-[--accent]/60 blur-[2px]"></span>
-              </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-5 leading-[1.1]">
+              Your Reliable
+              <br />
+              <span className="text-primary">Logistics Partner</span>
+              <br />
+              Across Maharashtra
             </h1>
 
-            {/* Subtext */}
-            <p className="text-lg md:text-xl text-white/85 max-w-2xl">
-              Reliable, on-time logistics across Maharashtra with GPS-enabled fleet, modern warehousing, and responsive support.
+            <p className="text-lg md:text-xl text-white/80 max-w-xl mb-8 leading-relaxed">
+              Dependable transportation, warehousing, and distribution with a GPS-enabled fleet and responsive support.
             </p>
 
-           
-
-            {/* CTA */}
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-3">
+              <a
+                href={COMPANY.phones[0].href}
+                className="group inline-flex items-center gap-2.5 rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 transition-all"
+              >
+                <Phone className="h-5 w-5" />
+                Call Now
+              </a>
               <Link
                 to="/contact"
-                className="group inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-base md:text-lg font-semibold text-[--primary] shadow-sm hover:shadow-md hover:bg-white/95 transition-all"
+                className="group inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-base font-semibold text-secondary shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
               >
-                Contact Us
-                <svg className="h-5 w-5 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14"/>
-                  <path d="M12 5l7 7-7 7"/>
-                </svg>
+                Get a Quote
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 rounded-lg bg-white/15 px-6 py-3 text-base md:text-lg font-semibold text-white ring-1 ring-white/25 hover:bg-white/20 transition-colors"
+                className="inline-flex items-center gap-2 rounded-xl bg-white/10 backdrop-blur-sm px-6 py-3.5 text-base font-semibold text-white ring-1 ring-white/20 hover:bg-white/20 transition-colors"
               >
                 Our Services
               </Link>
@@ -75,151 +88,174 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      {/* <section className="py-20 bg-white">
+      {/* ── Client trust strip ── */}
+      <section className="py-10 bg-white border-b border-border">
         <div className="container-xl">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { number: '25+', label: 'Years Experience' },
-              { number: '1000+', label: 'Monthly Deliveries' },
-              { number: '50+', label: 'Fleet Size' },
-              { number: '99%', label: 'On-time Delivery' }
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-4xl font-bold text-[--primary] mb-2">{stat.number}</div>
-                <div className="text-foreground/70">{stat.label}</div>
-              </div>
+          <p className="text-center text-sm text-foreground/50 uppercase tracking-wider font-medium mb-6">
+            Trusted by leading manufacturers
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+            {clientLogos.map((c) => (
+              <img
+                key={c.name}
+                src={c.src}
+                alt={c.name}
+                className="h-10 md:h-12 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                loading="lazy"
+              />
             ))}
           </div>
         </div>
-      </section> */}
-      {/* Why Choose Us (Redesigned) */}
-      <section className="relative py-20 bg-white overflow-hidden">
-        {/* Radial yellow background */}
-        {/* <div
-          className="pointer-events-none absolute inset-0 z-0"
-          style={{
-            backgroundImage:
-              'radial-gradient(500px 500px at 88% 88%, rgba(65, 211, 248, 0.28), transparent 100%),\
-              //  radial-gradient(560px 560px at 88% 12%, rgba(4, 241, 249, 0.22), transparent 100%),\
-               radial-gradient(500px 500px at 82% 82%, rgba(115, 232, 245, 0.18), transparent 100%)',
-          }}
-        /> */}
-        <div
-          className="pointer-events-none absolute inset-0 z-0 animate-pulse"
-          style={{
-            backgroundImage:
-              'radial-gradient(520px 520px at 22% 78%, rgba(250,204,21,0.15), transparent 65%)',
-          }}
-        />
-        <div className="container-xl relative z-10">
-          {/* Header row with CTA */}
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-3">Why Choose Us</h2>
-              <p className="text-foreground/70 max-w-3xl">Your goods, delivered safely — every time.</p>
-            </div>
-            <Link
-              to="/services"
-              className="self-start inline-flex items-center gap-2 rounded-full bg-[--primary] px-5 py-2 text-white hover:opacity-90 transition"
-            >
-              Explore Services
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-            </Link>
+      </section>
+
+      {/* ── Why Choose Us ── */}
+      <section className="py-20 bg-white">
+        <div className="container-xl">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-3">Why Choose Us</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Your Goods, Delivered Safely — Every Time</h2>
+            <p className="text-foreground/60 text-lg">
+              Over three decades of logistics excellence built on reliability, safety, and customer-first service.
+            </p>
           </div>
 
-          {/* Feature cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Highlighted card */}
-            <div className="rounded-2xl p-6 md:p-7 bg-[--primary] text-[--primary-foreground] shadow-sm">
-              <div className="flex items-center gap-3 mb-4">
-                <img src={iconOnTime} alt="On-time Delivery" className="h-8 w-8 rounded-md object-cover ring-1 ring-white/20" />
-                <span className="text-sm/none bg-white/15 px-2 py-1 rounded-md">Reliability</span>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whyUs.map((item, i) => (
+              <div
+                key={item.title}
+                className={`group rounded-2xl p-7 border transition-all hover:shadow-lg hover:-translate-y-1 ${
+                  i === 0
+                    ? 'bg-primary text-white border-primary shadow-md'
+                    : 'bg-white border-border hover:border-primary/30'
+                }`}
+              >
+                <div className={`inline-flex items-center justify-center h-12 w-12 rounded-xl mb-5 ${
+                  i === 0 ? 'bg-white/20' : 'bg-accent/50'
+                }`}>
+                  <item.icon className={`h-6 w-6 ${i === 0 ? 'text-white' : 'text-primary'}`} />
+                </div>
+                <h3 className={`text-xl font-semibold mb-2 ${i === 0 ? '' : 'text-foreground'}`}>{item.title}</h3>
+                <p className={`text-sm leading-relaxed ${i === 0 ? 'text-white/85' : 'text-foreground/60'}`}>{item.desc}</p>
               </div>
-              <h3 className="text-xl md:text-2xl font-semibold mb-2">On-time Delivery</h3>
-              <p className="text-[--primary-foreground]/90 mb-5">Efficient route planning and proactive tracking to meet your deadlines.</p>
-              <Link to="/services" className="inline-flex items-center gap-2 rounded-full bg-white/90 text-[--primary] px-4 py-2 font-medium hover:bg-white">
-                Learn More
-                <span aria-hidden>↗</span>
-              </Link>
-            </div>
+            ))}
+          </div>
 
-            {/* Secondary cards */}
-            <div className="rounded-2xl p-6 md:p-7 bg-accent/20 border border-border">
-              <div className="flex items-center gap-3 mb-4">
-                <img src={iconSafe} alt="Safe Transport" className="h-8 w-8 rounded-md object-cover ring-1 ring-border" />
-                <span className="text-sm text-foreground/70">Safety</span>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Safe & Dependable Transport</h3>
-              <p className="text-foreground/70 mb-5">Maintained fleet and trained drivers to safeguard your goods.</p>
-              <Link to="/services" className="inline-flex items-center gap-2 rounded-full bg-[--primary] text-white px-4 py-2 font-medium hover:opacity-90">Learn More</Link>
-            </div>
+          <div className="text-center mt-10">
+            <Link
+              to="/services"
+              className="group inline-flex items-center gap-2 text-primary font-semibold hover:underline"
+            >
+              Explore all services <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
-            <div className="rounded-2xl p-6 md:p-7 bg-accent/20 border border-border">
-              <div className="flex items-center gap-3 mb-4">
-                <img src={iconSupport} alt="Prompt Response" className="h-8 w-8 rounded-md object-cover ring-1 ring-border" />
-                <span className="text-sm text-foreground/70">Support</span>
+      {/* ── Coverage highlight ── */}
+      <section className="py-20 bg-accent/30">
+        <div className="container-xl">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-3">Our Network</span>
+              <h2 className="text-3xl md:text-4xl font-bold mb-5">Strategic Coverage Across Maharashtra</h2>
+              <p className="text-foreground/60 text-lg mb-8">
+                With warehouses and offices in key industrial hubs, we ensure fast and efficient delivery to your doorstep.
+              </p>
+              <div className="space-y-4">
+                {OFFICES.filter((o) => o.phones).map((office) => (
+                  <a
+                    key={office.name}
+                    href={office.mapLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-4 p-4 rounded-xl bg-white border border-border hover:border-primary/30 hover:shadow-sm transition-all group"
+                  >
+                    <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-primary/10 shrink-0 mt-0.5">
+                      <MapPin className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">{office.name}</h3>
+                      <p className="text-sm text-foreground/60 mt-0.5">{office.city}</p>
+                      <p className="text-xs text-foreground/40 mt-1">📞 {office.phones}</p>
+                    </div>
+                  </a>
+                ))}
               </div>
-              <h3 className="text-xl font-semibold mb-2">Prompt & Positive Response</h3>
-              <p className="text-foreground/70 mb-5">Responsive coordination and updates throughout the delivery cycle.</p>
-              <Link to="/contact" className="inline-flex items-center gap-2 rounded-full bg-[--primary] text-white px-4 py-2 font-medium hover:opacity-90">Learn More</Link>
             </div>
-
-            <div className="rounded-2xl p-6 md:p-7 bg-accent/20 border border-border">
-              <div className="flex items-center gap-3 mb-4">
-                <img src={iconExperience} alt="Years Experience" className="h-8 w-8 rounded-md object-cover ring-1 ring-border" />
-                <span className="text-sm text-foreground/70">Experience</span>
+            <div className="relative">
+              <img
+                src={warehouseImg}
+                alt="Warehouse operations"
+                className="rounded-2xl shadow-xl w-full h-[400px] object-cover"
+                loading="lazy"
+              />
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-lg p-5 hidden md:block">
+                <div className="text-3xl font-bold text-primary">3+</div>
+                <div className="text-sm text-foreground/60">Warehouse Locations</div>
               </div>
-              <h3 className="text-xl font-semibold mb-2">25+ Years Experience</h3>
-              <p className="text-foreground/70 mb-5">A proven track record with leading manufacturers across Maharashtra.</p>
-              <Link to="/about" className="inline-flex items-center gap-2 rounded-full bg-[--primary] text-white px-4 py-2 font-medium hover:opacity-90">Learn More</Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 relative overflow-hidden">
-        {/* Background with pattern */}
-        <div className="absolute inset-0 bg-[--primary] rounded-t-[36px] rounded-b-[36px] md:rounded-t-[64px] md:rounded-b-[64px]">
-          <div className="absolute inset-0 bg-[linear-gradient(30deg,var(--primary)_50%,var(--accent)_100%)] opacity-90 rounded-t-[36px] rounded-b-[36px] md:rounded-t-[64px] md:rounded-b-[64px]"></div>
-          <div
-            className="absolute inset-0 rounded-t-[36px] rounded-b-[36px] md:rounded-t-[64px] md:rounded-b-[64px]"
-            style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)', backgroundSize: '32px 32px' }}
-          ></div>
-        </div>
-        
-        <div className="container-xl relative">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Partner with Maharashtra's Most Trusted Logistics Provider
-            </h2>
-            <div className="text-white/90 text-lg mb-12 space-y-4">
-              <p>
-                Join our network of satisfied clients including Bajaj Auto, Varroc, and other industry leaders.
-              </p>
-              <div className="grid sm:grid-cols-3 gap-6 mt-8">
-                <div className="p-4 rounded-lg bg-white/10 backdrop-blur">
-                  <h3 className="font-semibold mb-2">Direct Services</h3>
-                  <p className="text-sm text-white/80">Regular routes across major industrial hubs</p>
+      {/* ── Testimonials ── */}
+      <section className="py-20 bg-white">
+        <div className="container-xl">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-3">Testimonials</span>
+            <h2 className="text-3xl md:text-4xl font-bold">What Our Clients Say</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {TESTIMONIALS.map((t) => (
+              <div key={t.author} className="rounded-2xl border border-border p-7 bg-white hover:shadow-md transition-shadow">
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="h-4 w-4 text-amber-400 fill-current" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
                 </div>
-                <div className="p-4 rounded-lg bg-white/10 backdrop-blur">
-                  <h3 className="font-semibold mb-2">Modern Fleet</h3>
-                  <p className="text-sm text-white/80">GPS-enabled vehicles with real-time tracking</p>
-                </div>
-                <div className="p-4 rounded-lg bg-white/10 backdrop-blur">
-                  <h3 className="font-semibold mb-2">24/7 Support</h3>
-                  <p className="text-sm text-white/80">Dedicated team for immediate assistance</p>
+                <p className="text-foreground/70 mb-6 leading-relaxed">"{t.quote}"</p>
+                <div className="border-t border-border pt-4">
+                  <p className="font-semibold text-sm">{t.author}</p>
+                  <p className="text-xs text-foreground/50">{t.company}</p>
                 </div>
               </div>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            ))}
+          </div>
+        </div>
+      </section>
 
-              <Link
-                to="/services"
-                className="inline-flex items-center justify-center rounded-md bg-white/10 backdrop-blur px-8 py-3 text-lg font-medium text-white border border-white/20 hover:bg-white/20 transition-colors"
+      {/* ── CTA Section ── */}
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-secondary">
+          <div
+            className="absolute inset-0 opacity-[0.03]"
+            style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}
+          />
+        </div>
+        <div className="container-xl relative">
+          <div className="max-w-3xl mx-auto text-center text-white">
+            <h2 className="text-3xl md:text-5xl font-bold mb-5">
+              Ready to Streamline Your Logistics?
+            </h2>
+            <p className="text-white/70 text-lg mb-10 max-w-2xl mx-auto">
+              Join Bajaj Auto, Varroc, and other industry leaders who trust Santosh Logistics for reliable, on-time deliveries.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href={COMPANY.phones[0].href}
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-primary/25 hover:shadow-xl hover:-translate-y-0.5 transition-all"
               >
-                Explore Services
+                <Phone className="h-5 w-5" />
+                Call Now
+              </a>
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-white/10 backdrop-blur px-8 py-4 text-lg font-medium text-white ring-1 ring-white/20 hover:bg-white/15 transition-colors"
+              >
+                Send a Message
+                <ArrowRight className="h-5 w-5" />
               </Link>
             </div>
           </div>
