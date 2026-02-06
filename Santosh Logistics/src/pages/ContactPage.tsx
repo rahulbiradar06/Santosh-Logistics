@@ -172,7 +172,7 @@ export default function ContactPage() {
         <div className="container-xl text-center">
           <h2 className="text-2xl font-bold mb-6">Business Hours</h2>
           <p className="text-foreground/70">
-            Monday - Saturday: 9:00 AM - 7:00 PM IST
+            Monday - Saturday: 7:30 AM - 7:00 PM IST
           </p>
           <p className="text-foreground/70">
             Sunday: Closed
