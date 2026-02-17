@@ -43,7 +43,7 @@ export default function ClientsPage() {
         />
         <div className="absolute inset-0 -z-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
         <div className="container-xl relative text-white">
-          <span className="inline-block text-sm font-semibold uppercase tracking-wider text-primary mb-3">Our Partners</span>
+          <span className="inline-block text-sm font-semibold uppercase tracking-wider text-white/90 mb-3">Our Partners</span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5">Our Clients</h1>
           <p className="text-lg md:text-xl text-white/80 max-w-2xl">
             Proud logistics partner for leading manufacturers across Maharashtra.

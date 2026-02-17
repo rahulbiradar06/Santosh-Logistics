@@ -43,7 +43,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 -z-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
         <div className="container-xl relative text-white">
           <div className="max-w-3xl">
-            <span className="inline-block text-sm font-semibold uppercase tracking-wider text-primary mb-3">About Us</span>
+            <span className="inline-block text-sm font-semibold uppercase tracking-wider text-white/90 mb-3">About Us</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-5">
               About Santosh Logistics
             </h1>

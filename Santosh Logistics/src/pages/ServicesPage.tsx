@@ -25,7 +25,7 @@ export default function ServicesPage() {
         />
         <div className="absolute inset-0 -z-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
         <div className="container-xl relative text-white">
-          <span className="inline-block text-sm font-semibold uppercase tracking-wider text-primary mb-3">What We Offer</span>
+          <span className="inline-block text-sm font-semibold uppercase tracking-wider text-white/90 mb-3">What We Offer</span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5">Our Services</h1>
           <p className="text-lg md:text-xl text-white/80 max-w-2xl">
             Comprehensive logistics solutions designed to meet your business needs with efficiency and reliability.

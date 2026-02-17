@@ -10,7 +10,7 @@ export default function ContactPage() {
         <div className="absolute inset-0 -z-10 bg-cover bg-[position:50%_20%]" style={{ backgroundImage: `url(${ContactBanner})` }} />
         <div className="absolute inset-0 -z-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
         <div className="container-xl relative text-white">
-          <span className="inline-block text-sm font-semibold uppercase tracking-wider text-primary mb-3">Contact</span>
+          <span className="inline-block text-sm font-semibold uppercase tracking-wider text-white/90 mb-3">Contact</span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-5">Get in Touch</h1>
           <p className="text-lg md:text-xl text-white/80 max-w-2xl">
             Have questions about transport, warehousing, or deliveries? We're here to help.

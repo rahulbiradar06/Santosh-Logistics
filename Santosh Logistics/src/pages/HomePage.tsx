@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Phone, ArrowRight, Truck, Shield, Clock, Award, MapPin, Headphones } from 'lucide-react'
+import Spline from '@splinetool/react-spline'
 import heroImg from '../assets/transport/5.jpg'
 import warehouseImg from '@/assets/warehouse/1.jpg'
 import { COMPANY, OFFICES, TESTIMONIALS } from '@/data/siteData'
@@ -106,6 +107,11 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* ── 3D Spline Model ── */}
+      <section className="relative h-[600px] md:h-[700px] bg-gradient-to-b from-white to-accent/20 overflow-hidden">
+        <Spline scene="https://prod.spline.design/dbOMCkXjcwy6Isrt/scene.splinecode" />
       </section>
 
       {/* ── Why Choose Us ── */}
