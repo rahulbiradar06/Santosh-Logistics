@@ -110,8 +110,10 @@ export default function HomePage() {
       </section>
 
       {/* ── 3D Spline Model ── */}
-      <section className="relative h-[600px] md:h-[700px] bg-gradient-to-b from-white to-accent/20 overflow-hidden">
+      <section className="relative h-[600px] md:h-[700px] bg-gradient-to-b from-white to-accent/20 overflow-hidden [&_#spline-watermark]:hidden [&_a[href*='spline.design']]:hidden">
         <Spline scene="https://prod.spline.design/dbOMCkXjcwy6Isrt/scene.splinecode" />
+        {/* White overlay to cover bottom row with Spline watermark */}
+        <div className="absolute bottom-0 left-0 right-0 h-20 md:h-16 bg-white z-10" />
       </section>
 
       {/* ── Why Choose Us ── */}
