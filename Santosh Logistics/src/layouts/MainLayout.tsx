@@ -21,8 +21,8 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
 
   const closeMenu = useCallback(() => setMenuOpen(false), [])
 
-  // Determine header text colour based on scroll + page
-  const lightText = !isScrolled && isHome
+  // Always use dark text for better visibility
+  const lightText = false
 
   return (
     <div className="font-sans text-base leading-7 antialiased">
@@ -63,11 +63,11 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
                 lightText ? 'drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]' : ''
               }`}
             />
-            <div className="hidden sm:block leading-tight">
+            <div className="leading-tight">
               <span className={`block text-base font-bold tracking-wide ${lightText ? 'text-white' : 'text-foreground'}`}>
                 SANTOSH LOGISTICS
               </span>
-              <span className={`block text-[11px] tracking-wider uppercase ${lightText ? 'text-white/70' : 'text-foreground/50'}`}>
+              <span className={`hidden sm:block text-[11px] tracking-wider uppercase ${lightText ? 'text-white/70' : 'text-foreground/50'}`}>
                 Pvt. Ltd.
               </span>
             </div>
