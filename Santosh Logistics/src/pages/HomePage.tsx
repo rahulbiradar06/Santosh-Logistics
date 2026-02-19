@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { Phone, ArrowRight, Truck, Shield, Clock, Award, MapPin, Headphones } from 'lucide-react'
 import Spline from '@splinetool/react-spline'
 import heroImg from '../assets/transport/5.jpg'
-import warehouseImg from '@/assets/warehouse/1.jpg'
+import warehouseImg from '@/assets/warehouse/10.jpg'
 import { COMPANY, OFFICES, TESTIMONIALS } from '@/data/siteData'
 
 // Client logos for trust strip
